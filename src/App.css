@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.container {
+  width: 300px;
+  height: 200px;
+  background-color: black;
+  color: white;
+  margin: 10px 10px 0 10px;
+}
+
+.row {
+  display: inline-block;
+}
