@@ -1,10 +1,21 @@
 import React from 'react';
 
-const Card = ({ name, answer, id, toggleCard }) => (
+const Card = ({ name, question, answer, id, toggleCard }) => (
   <div className="container">
     {name}
+    <br />
+    {question} ?
+    <br />
+    Answer: <span
+              className="answerReveal"
 
-    {answer}
+            >{answer}
+            </span>
+    <br />
+    <button
+    >
+      Reveal Answer
+    </button>
   </div>
 )
 

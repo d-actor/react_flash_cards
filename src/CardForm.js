@@ -1,13 +1,13 @@
 import React from 'react';
 
 class CardForm extends React.Component {
-  state = { name: '', answer: '', nextId: 1 }
+  state = { name: '', question: '', answer: '', nextId: 1 }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, answer, nextId } = this.state;
-    const card = { name, answer, id: nextId }
-    this.setState({ name: '', answer: '', nextId: nextId + 1 })
+    const { name, question, answer, nextId } = this.state;
+    const card = { name, question, answer, id: nextId }
+    this.setState({ name: '', question: '', answer: '', nextId: nextId + 1 })
     this.props.addCard(card);
   }
 
@@ -15,18 +15,28 @@ class CardForm extends React.Component {
     this.setState({ name: e.target.value})
   }
 
+  handleChangeQues = (e) => {
+    this.setState({ question: e.target.value})
+  }
+
   handleChangeAns = (e) => {
     this.setState({ answer: e.target.value})
   }
 
   render() {
-    const { name } = this.state;
-    const { answer } = this.state;
+    const { name } = this.state.name;
+    const { question } = this.state.question;
+    const { answer } = this.state.answer;
 
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input value={name} onChange={this.handleChangeName} />
-        <input value={answer} onChange={this.handleChangeAns} />
+      <form>
+        Name: <input value={name} onChange={this.handleChangeName} />
+        <br />
+        Question: <input value={question} onChange={this.handleChangeQues} />
+        <br />
+        Answer: <input value={answer} onChange={this.handleChangeAns} />
+        <br />
+        <button onClick={this.handleSubmit}>Submit</button>
       </form>
     )
   }
